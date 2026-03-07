@@ -424,9 +424,22 @@ section:nth-child(even) { background: var(--white); }
 .past-event-card[style*="grid-column"] .card-image {
   height: 320px;
 }
+
+@media (max-width: 900px) {
+  .past-event-card .card-image {
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  .past-event-card .card-image img {
+    object-fit: contain;
+    object-position: center;
+  }
+}
 .past-event-card .card-image img {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center;
+  display: block;
   transition: transform 0.5s;
 }
 .past-event-card:hover .card-image img { transform: scale(1.04); }
@@ -624,20 +637,6 @@ section:nth-child(even) { background: var(--white); }
 }
 .form-row input:focus, .form-row textarea:focus { border-color: var(--blue); }
 .form-row textarea { height: 110px; resize: vertical; }
-
-.linkedin-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.75rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--blue);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.linkedin-link:hover { color: var(--coral); }
-
 
 /* ─── FOOTER ─── */
 footer {
