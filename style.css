@@ -126,6 +126,15 @@ section {
 }
 section:nth-child(even) { background: var(--white); }
 
+/* explicit backgrounds — ensures correct pattern regardless of section count */
+#home    { background: var(--light); }
+#event   { background: var(--white); }
+#past    { background: var(--light); }
+#mission { background: var(--white); }
+#about   { background: var(--light); }
+
+/* explicit section backgrounds to ensure correct alternating pattern */
+
 .section-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -519,7 +528,7 @@ section:nth-child(even) { background: var(--white); }
 .featured-past .fp-text p { color: rgba(255,255,255,0.75); font-size: 0.92rem; line-height: 1.8; }
 
 /* ─── ABOUT ─── */
-#about { background: var(--white); }
+#about { background: var(--light); }
 .about-header { margin-bottom: 3.5rem; }
 .about-header h2 {
   font-family: 'Playfair Display', serif;
@@ -584,7 +593,7 @@ section:nth-child(even) { background: var(--white); }
 
 /* ─── CONTACT ─── */
 .contact-block {
-  background: var(--light);
+  background: var(--white);
   border-radius: 4px;
   padding: 3rem;
   display: grid;
@@ -604,13 +613,13 @@ section:nth-child(even) { background: var(--white); }
 }
 .contact-icon {
   width: 38px; height: 38px;
-  background: var(--white);
+  background: var(--coral);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(229,98,60,0.25);
 }
-.contact-icon svg { width: 16px; height: 16px; color: var(--coral); }
+.contact-icon svg { width: 16px; height: 16px; color: white; }
 .contact-item .ci-text strong { display: block; font-size: 0.78rem; color: #999; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.15rem; }
 .contact-item .ci-text a, .contact-item .ci-text span { font-size: 0.92rem; color: var(--dark); text-decoration: none; }
 .contact-item .ci-text a:hover { color: var(--coral); }
@@ -637,6 +646,118 @@ section:nth-child(even) { background: var(--white); }
 }
 .form-row input:focus, .form-row textarea:focus { border-color: var(--blue); }
 .form-row textarea { height: 110px; resize: vertical; }
+
+/* ─── MISSION ─── */
+
+.mission-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0 4rem;
+}
+
+.mission-stat {
+  background: var(--light);
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem;
+  border-top: 3px solid var(--coral);
+}
+
+.mission-stat__num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--coral);
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.mission-stat__text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.mission-source {
+  display: block;
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+.mission-goals-header {
+  margin-bottom: 2rem;
+}
+
+.mission-goals-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.mission-goals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.goal-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 170px;
+}
+
+.goal-circle__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), #1a6fd4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: white;
+  flex-shrink: 0;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.goal-circle:hover .goal-circle__icon {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,74,173,0.25);
+}
+
+.goal-circle__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.goal-circle p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .mission-stats { grid-template-columns: 1fr 1fr; }
+  .mission-goals { gap: 1.5rem; }
+  .goal-circle { width: 140px; }
+}
+
+@media (max-width: 600px) {
+  .mission-stats { grid-template-columns: 1fr; }
+  .mission-goals { gap: 1.2rem; }
+  .goal-circle { width: 130px; }
+  .goal-circle__icon { width: 68px; height: 68px; }
+}
 
 /* ─── FOOTER ─── */
 footer {
