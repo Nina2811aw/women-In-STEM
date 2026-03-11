@@ -746,17 +746,10 @@ section:nth-child(even) { background: var(--white); }
   color: #666;
 }
 
-.track-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin-top: 12px;
-}
-
 .track-card {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 10px;
+  background: rgba(161, 182, 188, 0.15);
+  border: 1.5px solid #A1B6BC;
+  border-radius: 12px;
   padding: 12px 14px;
   display: flex;
   flex-direction: column;
@@ -764,7 +757,9 @@ section:nth-child(even) { background: var(--white); }
 }
 
 .track-card.track-tba {
-  opacity: 0.5;
+  background: rgba(161, 182, 188, 0.06);
+  border: 1.5px solid rgba(161, 182, 188, 0.35);
+  opacity: 0.6;
   font-style: italic;
 }
 
@@ -773,7 +768,7 @@ section:nth-child(even) { background: var(--white); }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent, #a78bfa);
+  color: #A1B6BC;
 }
 
 .track-title {
@@ -791,12 +786,8 @@ section:nth-child(even) { background: var(--white); }
   color: rgba(255,255,255,0.7);
 }
 
-.speaker-icon {
-  font-size: 0.75rem;
-}
-
 .linkedin-link {
-  color: #0a66c2;
+  color: #A1B6BC;
   display: flex;
   align-items: center;
   transition: opacity 0.2s;
@@ -806,6 +797,15 @@ section:nth-child(even) { background: var(--white); }
 .linkedin-link:hover {
   opacity: 0.75;
 }
+
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+
 
 @media (max-width: 900px) {
   .mission-stats { grid-template-columns: 1fr 1fr; }
