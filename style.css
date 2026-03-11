@@ -746,6 +746,67 @@ section:nth-child(even) { background: var(--white); }
   color: #666;
 }
 
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.track-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.track-card.track-tba {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.track-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent, #a78bfa);
+}
+
+.track-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.track-speaker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  color: rgba(255,255,255,0.7);
+}
+
+.speaker-icon {
+  font-size: 0.75rem;
+}
+
+.linkedin-link {
+  color: #0a66c2;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s;
+  margin-left: auto;
+}
+
+.linkedin-link:hover {
+  opacity: 0.75;
+}
+
 @media (max-width: 900px) {
   .mission-stats { grid-template-columns: 1fr 1fr; }
   .mission-goals { gap: 1.5rem; }
