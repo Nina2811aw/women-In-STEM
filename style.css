@@ -788,14 +788,28 @@ section:nth-child(even) { background: var(--white); }
 
 .linkedin-link {
   color: #A1B6BC;
-  display: flex;
-  align-items: center;
   transition: opacity 0.2s;
-  margin-left: auto;
 }
 
 .linkedin-link:hover {
   opacity: 0.75;
+}
+
+/* Speaker cards: icon-only link pushed to the right */
+.track-speaker .linkedin-link {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Team cards: icon + "LinkedIn" text, centered below the card */
+.team-card .linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .track-grid {
