@@ -51,7 +51,7 @@ const workshopData = {
   ws1a: {
     track: 'Workshop Session 1 — Track A',
     title: 'Discover Quantum Computing: Your First Step into the World of Qubits',
-    description: 'Details tba',
+    description: 'Taking the first step into a new field can feel intimidating, but you don’t have to do it alone. This beginner-friendly workshop is designed to welcome those curious about the future of technology. Together, we’ll explore what quantum computing really is, how it differs from classical computing, and why it matters for tomorrow’s innovations. No prior knowledge is required, just curiosity and a willingness to try something new. This workshop aims to empower you to see that quantum technology is not “out of reach”, it needs people like you:)',
     speakers: [
       { name: 'Lavinia Stiliadou', org: 'University of Stuttgart', linkedin: 'https://www.linkedin.com/in/lavinia-stiliadou-51561636b/' }
     ]
