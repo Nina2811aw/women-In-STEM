@@ -75,7 +75,7 @@ const workshopData = {
   ws2a: {
     track: 'Workshop Session 2 — Track A',
     title: 'Tips for Female Engineers in Male-Dominated Environments',
-    description: 'Details tba',
+    description: 'As women in male-dominated industries, we often face unique challenges that require specific strategies. This workshop is a space to share our personal experiences to learn from and inspire one another. Together, we will develop practical tips and tricks to confidently navigate and succeed in technical environments. Join us to turn our shared insights into collective strength!',
     speakers: [
       { name: 'Ann-Kathrin Wimmer', org: 'Bosch', linkedin: 'https://www.linkedin.com/in/ann-kathrin-wimmer/' }
     ]
