@@ -72,6 +72,14 @@ const workshopData = {
       { name: 'Yilin Chen', org: 'AEB', linkedin: 'https://www.linkedin.com/in/chen-yilin/' }
     ]
   },
+  ws1d: {
+    track: 'Workshop Session 1 — Track D',
+    title: 'Think Like a Scientist. Act Like a Founder. Creating impact as a Female Entrepreneur',
+    description: 'Did you know scientific and entrepreneurial thinking often overlap? In this interactive workshop, we’ll explore what (female) entrepreneurship truly means. Hands-on exercises demonstrate how mindset shifts spark action and turn your research or ideas into real-world impact. We’ll reflect on identity loops – and show how to combine an impact-driven mindset with entrepreneurial skills. We also discover opportunities, support programs, and pathways at and outside the University of Stuttgart to grow your impact even further after the workshop.',
+    speakers: [
+      { name: 'Laura Rothgang', org: 'Traces', linkedin: 'https://www.linkedin.com/in/laura-rothgang-560762110/' }
+    ]
+  },
   ws2a: {
     track: 'Workshop Session 2 — Track A',
     title: 'Tips for Female Engineers in Male-Dominated Environments',
@@ -106,6 +114,7 @@ const cardMappings = [
   { session: 0, track: 0, key: 'ws1a' },
   { session: 0, track: 1, key: 'ws1b' },
   { session: 0, track: 2, key: 'ws1c' },
+  { session: 0, track: 3, key: 'ws1d' },
   // Session 2
   { session: 1, track: 0, key: 'ws2a' },
   { session: 1, track: 1, key: 'ws2b' },
