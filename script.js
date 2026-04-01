@@ -58,8 +58,8 @@ const workshopData = {
   },
   ws1b: {
     track: 'Workshop Session 1 — Track B',
-    title: 'Building a Solar Park',
-    description: 'Details tba',
+    title: 'Vom Acker zur Anlage - die Projektentwicklung von Solarparks',
+    description: 'Details tba, this workshop will be held in German.',
     speakers: [
       { name: 'Jasmin Saad', org: 'EnBW', linkedin: 'https://www.linkedin.com/in/jasmin-saad-1076361ba/' }
     ]
@@ -104,6 +104,15 @@ const workshopData = {
     speakers: [
       { name: 'Isabelle Zaubitzer', org: 'Design Factory', linkedin: 'https://www.linkedin.com/in/isabelle-zaubitzer-2b5b21333/' }
     ]
+  },
+   ws2d: {
+    track: 'Workshop Session 2 — Track D',
+    title: 'Introduction to AI Safety & Career Planning',
+    description: 'Details tba',
+    speakers: [
+      { name: 'Isabelle Katharina Deckenbach', org: 'ELLIS Institute Tübingen', linkedin: 'https://www.linkedin.com/in/katharina-deckenbach/' },
+      { name: 'Jeanne Salle', org: 'Max-Planck-Institute for Intelligent Systems', linkedin: 'https://www.linkedin.com/in/jeanne-salle-931786202/' }
+    ]
   }
 };
 
@@ -119,6 +128,7 @@ const cardMappings = [
   { session: 1, track: 0, key: 'ws2a' },
   { session: 1, track: 1, key: 'ws2b' },
   { session: 1, track: 2, key: 'ws2c' },
+  { session: 1, track: 3, key: 'ws2d' },
 ];
 
 const trackGrids = document.querySelectorAll('.track-grid');
