@@ -996,6 +996,22 @@ footer strong { color: rgba(255,255,255,0.7); }
   color: var(--dark);
 }
 
+.button {
+  display: inline-block;
+  background-color: #E5623C;
+  color: white;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #F58B29;
+}
+
 @media (max-width: 600px) {
   .modal-box { padding: 1.75rem 1.25rem; }
   .modal-title { font-size: 1.2rem; }
