@@ -108,7 +108,7 @@ const workshopData = {
    ws2d: {
     track: 'Workshop Session 2 — Track D',
     title: 'Introduction to AI Safety & Career Planning',
-    description: 'Details tba',
+    description: 'In this workshop, Jeanne and Kathi will give you an introduction to the field of their PhD studies: AI Safety. Progress in AI has happened at an incredible speed over the last couple of years, but what are the challenges we will be facing once AI systems reach or surpass human-level intelligence? They will share some of their learning and things they wish they had known already during their studies. Using tools and questions that helped them find their way to working on AI Safety, you will get a chance to reflect on your own career in the second half of the workshop. This workshop is well-suited for everyone who is curious to learn more about one of the most pressing (and exciting) problems of our time. No previous knowledge of AI or Machine Learning is required.',
     speakers: [
       { name: 'Isabelle Katharina Deckenbach', org: 'ELLIS Institute Tübingen', linkedin: 'https://www.linkedin.com/in/katharina-deckenbach/' },
       { name: 'Jeanne Salle', org: 'Max-Planck-Institute for Intelligent Systems', linkedin: 'https://www.linkedin.com/in/jeanne-salle-931786202/' }
