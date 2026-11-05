@@ -18,6 +18,7 @@
     <li><a href="#event">Event</a></li>
     <li><a href="#past">Past Events</a></li>
     <li><a href="#mission">Our Mission</a></li>
+    <li><a href="#role-models">Role Models</a></li>
     <li><a href="#partners">Partners</a></li>
     <li><a href="#get-involved">Get Involved</a></li>
     <li><a href="#about">About Us</a></li>
@@ -33,6 +34,7 @@
   <a href="#event" class="mobile-nav-link">Event</a>
   <a href="#past" class="mobile-nav-link">Past Events</a>
   <a href="#mission" class="mobile-nav-link">Our Mission</a>
+  <a href="#role-models" class="mobile-nav-link">Role Models</a>
   <a href="#partners" class="mobile-nav-link">Partners</a>
 <a href="#get-involved" class="mobile-nav-link">Get Involved</a>
   <a href="#about" class="mobile-nav-link">About Us</a>
@@ -371,6 +373,38 @@
         <p>Create spaces where every female STEM student feels seen, heard, and that she truly belongs.</p>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ─── ROLE MODELS ─── -->
+<!-- The role models themselves live in script.js (const roleModels = [...]).
+     To add someone, add one entry there: nothing to change in this file. -->
+<section id="role-models">
+  <div class="section-inner">
+    <div class="past-header fade-up">
+      <div class="section-label">Get Inspired</div>
+      <h2>Role Models from Stuttgart</h2>
+      <p>Pioneers and present-day researchers from STEM with a connection to Stuttgart and its universities. Hit the button to meet one of them, or pick someone from the gallery.</p>
+    </div>
+
+    <div class="rm-spotlight fade-up" id="rm-spotlight" aria-live="polite">
+      <!-- filled by script.js -->
+    </div>
+
+    <div class="rm-controls fade-up">
+      <button type="button" class="btn btn-primary rm-shuffle" id="rm-shuffle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/>
+        </svg>
+        Show me a role model
+      </button>
+      <span class="rm-counter" id="rm-counter"></span>
+    </div>
+
+    <div class="rm-gallery-label fade-up">All role models</div>
+    <div class="rm-gallery fade-up" id="rm-gallery">
+      <!-- filled by script.js -->
     </div>
   </div>
 </section>

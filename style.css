@@ -1443,3 +1443,256 @@ footer a:hover { color: rgba(255,255,255,0.7); }
   .event-highlights { grid-template-columns: 1fr; }
   .event-cta { padding: 2rem 1.5rem; }
 }
+
+
+
+/* ─── ROLE MODELS ─── */
+#role-models { background: var(--white); min-height: auto; }
+
+/* accent colours: same palette and logic as the media / get-involved cards */
+.rm-accent-coral { --rm: var(--coral); --rm-ink: #c94a26; --rm-tint: rgba(229,98,60,0.09);  --rm-grad: linear-gradient(135deg, var(--coral), var(--amber)); }
+.rm-accent-blue  { --rm: var(--blue);  --rm-ink: var(--blue); --rm-tint: rgba(0,74,173,0.07); --rm-grad: linear-gradient(135deg, var(--blue), var(--slate)); }
+.rm-accent-amber { --rm: var(--amber); --rm-ink: #b85e0c; --rm-tint: rgba(245,139,41,0.11); --rm-grad: linear-gradient(135deg, var(--amber), var(--coral)); }
+.rm-accent-slate { --rm: var(--slate); --rm-ink: #5a7a82; --rm-tint: rgba(161,182,188,0.18); --rm-grad: linear-gradient(135deg, var(--blue), var(--slate)); }
+
+/* Spotlight card */
+.rm-spotlight { min-height: 300px; }
+.rm-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(160deg, var(--rm-tint) 0%, var(--light) 60%);
+  border-radius: 4px;
+  border-top: 4px solid var(--rm);
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  animation: rm-in 0.45s ease both;
+}
+.rm-card::after {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: var(--rm);
+  opacity: 0.08;
+  z-index: -1;
+}
+@keyframes rm-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.rm-spotlight.rm-rolling .rm-card { opacity: 0.4; transition: opacity 0.2s; }
+
+.rm-card__avatar {
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: var(--rm-grad);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  overflow: hidden;
+  border: 3px solid var(--white);
+}
+.rm-card__avatar img, .rm-thumb__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.rm-card__badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem; }
+/* same look as the partner badges / timetable tags */
+.rm-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.rm-badge--pioneer { background: rgba(245,139,41,0.12); color: #b85e0c; }
+.rm-badge--today   { background: rgba(229,98,60,0.12);  color: var(--coral); }
+.rm-badge--field   { background: rgba(0,74,173,0.1);    color: var(--blue); }
+
+.rm-card__name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+.rm-card__role {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.rm-card__bio { font-size: 0.92rem; line-height: 1.8; color: #555; margin-bottom: 1.25rem; max-width: 720px; }
+.rm-card__fact {
+  background: var(--white);
+  border-left: 3px solid var(--rm);
+  border-radius: 0 4px 4px 0;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: #555;
+  margin-bottom: 1.25rem;
+  max-width: 720px;
+}
+.rm-card__fact strong { color: var(--blue); }
+.rm-card__link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rm-ink);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.25s;
+}
+.rm-card__link:hover { transform: translateX(4px); }
+
+/* Controls */
+.rm-controls {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin: 1.75rem 0 3rem;
+}
+.rm-shuffle { font-family: inherit; }
+.rm-shuffle:disabled { opacity: 0.85; cursor: wait; transform: none; }
+.rm-shuffle svg { transition: transform 0.4s; }
+.rm-shuffle:hover svg { transform: rotate(180deg); }
+.rm-counter { font-size: 0.85rem; color: #888; }
+
+/* Gallery: uses the .section-label look */
+.rm-gallery-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.rm-gallery-label::before {
+  content: '';
+  display: block;
+  width: 32px; height: 2px;
+  background: var(--coral);
+}
+.rm-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+.rm-thumb {
+  display: flex; align-items: center; gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  background: var(--light);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 4px;
+  color: var(--dark);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.rm-thumb:hover {
+  border-color: var(--coral);
+  box-shadow: 0 8px 24px rgba(229,98,60,0.12);
+  transform: translateY(-3px);
+}
+.rm-thumb:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.rm-thumb.active { background: var(--white); border-color: var(--coral); box-shadow: 0 8px 24px rgba(229,98,60,0.12); }
+.rm-thumb.rolling { border-color: var(--amber); }
+
+.rm-thumb__avatar {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--rm-grad);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  overflow: hidden;
+}
+.rm-thumb__text { display: flex; flex-direction: column; min-width: 0; }
+.rm-thumb__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1.3;
+}
+.rm-thumb__field {
+  font-size: 0.75rem;
+  color: #888;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+@media (max-width: 900px) {
+  .rm-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
+  .rm-card__avatar { width: 100px; height: 100px; font-size: 2rem; }
+}
+@media (max-width: 600px) {
+  .rm-gallery { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .rm-thumb { flex-direction: column; text-align: center; padding: 0.9rem 0.6rem; gap: 0.5rem; }
+  .rm-thumb__text { align-items: center; width: 100%; }
+  .rm-thumb__field { white-space: normal; }
+  .rm-controls { margin: 1.5rem 0 2.25rem; }
+  .rm-shuffle { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rm-card { animation: none; }
+}
+
+/* ─── SECTION RHYTHM ───
+   Sections alternate light / white from top to bottom:
+   home · event · past · media · mission · role models · partners · get involved · about
+   Cards always take the opposite tone of their section.                         */
+#home         { background: var(--light); }
+#event        { background: var(--white); }
+#past         { background: var(--light); }
+#media        { background: var(--white); }
+#mission      { background: var(--light); }
+#role-models  { background: var(--white); }
+#partners     { background: var(--light); }
+#get-involved { background: var(--white); }
+#about        { background: var(--light); }
+
+/* media now sits on white: same tinted cards as Get Involved */
+.media-grid { background: none; }
+.media-card { background: linear-gradient(160deg, var(--tint) 0%, var(--light) 65%); }
+.media-card::before { background: var(--white); }
+
+/* mission now sits on light: white stat cards, accents cycle like the other cards */
+.mission-stat { background: var(--white); }
+.mission-stat:nth-child(3n+2) { border-top-color: var(--blue); }
+.mission-stat:nth-child(3n+2) .mission-stat__num { color: var(--blue); }
+.mission-stat:nth-child(3n+3) { border-top-color: var(--amber); }
+.mission-stat:nth-child(3n+3) .mission-stat__num { color: #d9741a; }
+
+/* event highlight cards pick up the same accent cycle */
+.event-highlight:nth-child(2) { border-top-color: var(--blue); }
+.event-highlight:nth-child(3) { border-top-color: var(--amber); }
+
+
+/* nav has 8 links now: tighten spacing on smaller laptops */
+@media (max-width: 1200px) and (min-width: 901px) {
+  nav { padding: 1.2rem 2rem; }
+  .nav-links { gap: 1.4rem; }
+  .nav-links a { font-size: 0.8rem; letter-spacing: 0.02em; }
+}
+@media (max-width: 1050px) and (min-width: 901px) {
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.74rem; letter-spacing: 0; }
+}

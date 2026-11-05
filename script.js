@@ -212,3 +212,178 @@ modal.querySelector('.modal-close').addEventListener('click', closeModal);
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
+// ─── ROLE MODELS ───
+// To add a role model, copy one entry and fill it in.
+// era:    'pioneer' (historical) or 'today'
+// accent: 'coral', 'blue', 'amber' or 'slate' (avatar + highlight colour)
+// photo:  optional, e.g. 'pictures/rolemodels/name.jpg'. Only use photos you have permission to use.
+//         Without a photo the initials are shown.
+const roleModels = [
+  {
+    name: 'Nora Kräutle',
+    years: '1891–1981',
+    era: 'pioneer',
+    field: 'Chemistry',
+    role: 'First female graduate engineer of TH Stuttgart',
+    accent: 'coral',
+    bio: 'Nora Kräutle studied chemistry at the Technische Hochschule Stuttgart, today\'s University of Stuttgart, and in 1914 became its very first female graduate engineer. A year later she was the first woman in the German Reich to earn a doctorate with honours at a technical university. She then joined Farbwerke Höchst as one of its first female chemists, until her marriage ended her career there because the company did not employ married couples.',
+    fact: 'Since 2014 the University of Stuttgart\'s Prima! prize for outstanding theses by women graduates commemorates her.',
+    link: 'https://next.gdch.de/en/discover-chemistry/biographies-of-female-chemists/biography-nora-kraeutle'
+  },
+  {
+    name: 'Margarete von Wrangell',
+    years: '1877–1932',
+    era: 'pioneer',
+    field: 'Agricultural Chemistry',
+    role: 'Germany\'s first female full professor',
+    accent: 'amber',
+    bio: 'In 1923 Margarete von Wrangell was appointed to the chair of plant nutrition at the Agricultural University of Hohenheim in Stuttgart, making her the first woman in Germany to become a full professor. She got there against strong resistance from a male-dominated academic world and built up her own institute for plant nutrition.',
+    fact: 'Hohenheim is today the University of Hohenheim, just a few kilometres from Campus Vaihingen.',
+    link: 'https://de.wikipedia.org/wiki/Margarete_von_Wrangell'
+  },
+  {
+    name: 'Miriam Schulte',
+    years: '',
+    era: 'today',
+    field: 'Computer Science & Simulation',
+    role: 'Professor, Simulation of Large Systems, University of Stuttgart',
+    accent: 'blue',
+    bio: 'Miriam Schulte has led the Simulation of Large Systems group at the University of Stuttgart since 2013. Her team combines numerical mathematics and computer science to run very large simulations on supercomputers, with applications ranging from fluid–structure interaction to muscle and tumour models and geothermal energy planning.',
+    fact: 'She is one of the spokespersons of the Cluster of Excellence SimTech, and her group co-develops the open-source coupling library preCICE. We also interviewed her for our blog article!',
+    link: 'https://www.uni-stuttgart.de/en/press/experts/Prof.-Dr.-Miriam-Schulte/'
+  },
+  {
+    name: 'Sabine Ludwigs',
+    years: '',
+    era: 'today',
+    field: 'Polymer Chemistry & Materials',
+    role: 'Professor, Structure and Properties of Polymeric Materials, University of Stuttgart',
+    accent: 'coral',
+    bio: 'Sabine Ludwigs researches semiconducting polymers for organic electronics and soft robotics. She studies how a molecule\'s design shapes its optical and electronic properties, and how ions move through these materials, which lays groundwork for bioelectronics and wearable medical devices.',
+    fact: 'Before coming to Stuttgart she led a DFG Emmy Noether research group in Freiburg. She is also an associate editor of the journal Macromolecules.',
+    link: 'https://en.wikipedia.org/wiki/Sabine_Ludwigs'
+  },
+  {
+    name: 'Katharina Hölzle',
+    years: '',
+    era: 'today',
+    field: 'Engineering & Innovation',
+    role: 'Professor, Institute of Human Factors and Technology Management (IAT), University of Stuttgart',
+    accent: 'amber',
+    bio: 'Katharina Hölzle trained as an industrial engineer and worked at Infineon, Capgemini and a US start-up before turning to research on technology and innovation management. Since 2022 she has headed the IAT at the University of Stuttgart and is executive director of Fraunhofer IAO, focusing on the future of work.',
+    fact: 'She gave a keynote on AI and the future of work at our #WomenInSTEM Festival 2026.',
+    link: 'https://www.uni-stuttgart.de/universitaet/aktuelles/meldungen/Professor-Katharina-Hoelzle-appointed-as-new-IAT-director/'
+  },
+  {
+    name: 'Bettina Lotsch',
+    years: '',
+    era: 'today',
+    field: 'Chemistry & Materials Science',
+    role: 'Max Planck Institute for Solid State Research · Honorary Professor, University of Stuttgart',
+    accent: 'blue',
+    bio: 'Bettina Lotsch heads a department at the Max Planck Institute for Solid State Research in Stuttgart and has been an honorary professor at the University of Stuttgart since 2017. She develops photocatalysts that use sunlight to produce hydrogen and to convert CO₂, materials that could help the energy transition.',
+    fact: 'In 2025 she received the Leibniz Prize, Germany\'s most prestigious research award.',
+    link: 'https://www.stuttgarter-zeitung.de/wissen/erfolg-fuer-forscher-im-suedwesten-drei-leibniz-preise-gehen-nach-baden-wuerttemberg-78854240.html'
+  }
+];
+
+(function initRoleModels() {
+  const spotlight = document.getElementById('rm-spotlight');
+  const gallery   = document.getElementById('rm-gallery');
+  const shuffle   = document.getElementById('rm-shuffle');
+  const counter   = document.getElementById('rm-counter');
+  if (!spotlight || !gallery || !roleModels.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = -1;
+  let seen = new Set();
+
+  const esc = str => String(str).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  const initials = name => name.split(' ').filter(Boolean).map(n => n[0]).filter((_, i, a) => i === 0 || i === a.length - 1).join('').toUpperCase();
+  const avatar = (rm, cls) => rm.photo
+    ? `<div class="${cls} rm-accent-${rm.accent}"><img src="${esc(rm.photo)}" alt="${esc(rm.name)}"></div>`
+    : `<div class="${cls} rm-accent-${rm.accent}" aria-hidden="true">${initials(rm.name)}</div>`;
+  const eraLabel = rm => rm.era === 'pioneer' ? 'Pioneer' : 'Today';
+
+  // Gallery
+  gallery.innerHTML = roleModels.map((rm, i) => `
+    <button type="button" class="rm-thumb" data-index="${i}" aria-pressed="false">
+      ${avatar(rm, 'rm-thumb__avatar')}
+      <span class="rm-thumb__text">
+        <span class="rm-thumb__name">${esc(rm.name)}</span>
+        <span class="rm-thumb__field">${esc(rm.field)}</span>
+      </span>
+    </button>`).join('');
+
+  function render(i) {
+    const rm = roleModels[i];
+    current = i;
+    seen.add(i);
+
+    spotlight.innerHTML = `
+      <article class="rm-card rm-accent-${rm.accent}">
+        ${avatar(rm, 'rm-card__avatar')}
+        <div class="rm-card__body">
+          <div class="rm-card__badges">
+            <span class="rm-badge rm-badge--${rm.era}">${eraLabel(rm)}${rm.years ? ' · ' + esc(rm.years) : ''}</span>
+            <span class="rm-badge rm-badge--field">${esc(rm.field)}</span>
+          </div>
+          <h3 class="rm-card__name">${esc(rm.name)}</h3>
+          <div class="rm-card__role">${esc(rm.role)}</div>
+          <p class="rm-card__bio">${esc(rm.bio)}</p>
+          ${rm.fact ? `<div class="rm-card__fact"><strong>Did you know?</strong> ${esc(rm.fact)}</div>` : ''}
+          ${rm.link ? `<a class="rm-card__link" href="${esc(rm.link)}" target="_blank" rel="noopener">Learn more →</a>` : ''}
+        </div>
+      </article>`;
+
+    gallery.querySelectorAll('.rm-thumb').forEach(t => {
+      const active = Number(t.dataset.index) === i;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-pressed', active);
+    });
+    counter.textContent = `${seen.size} of ${roleModels.length} discovered`;
+  }
+
+  // Random pick: prefers someone not seen yet, never repeats the current one
+  function pickRandom() {
+    let pool = roleModels.map((_, i) => i).filter(i => !seen.has(i));
+    if (!pool.length) { seen = new Set(); pool = roleModels.map((_, i) => i); }
+    if (pool.length > 1) pool = pool.filter(i => i !== current);
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function shuffleTo(target) {
+    if (reduceMotion) { render(target); return; }
+    shuffle.disabled = true;
+    spotlight.classList.add('rm-rolling');
+    const thumbs = gallery.querySelectorAll('.rm-thumb');
+    let step = 0;
+    const steps = 8;
+    const tick = () => {
+      thumbs.forEach(t => t.classList.remove('rolling'));
+      if (step < steps) {
+        thumbs[Math.floor(Math.random() * thumbs.length)].classList.add('rolling');
+        step++;
+        setTimeout(tick, 60 + step * 12);
+      } else {
+        spotlight.classList.remove('rm-rolling');
+        render(target);
+        shuffle.disabled = false;
+      }
+    };
+    tick();
+  }
+
+  shuffle.addEventListener('click', () => shuffleTo(pickRandom()));
+  gallery.addEventListener('click', e => {
+    const t = e.target.closest('.rm-thumb');
+    if (!t) return;
+    render(Number(t.dataset.index));
+    if (window.innerWidth < 900) {
+      const top = spotlight.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+  });
+
+  render(Math.floor(Math.random() * roleModels.length));
+})();
